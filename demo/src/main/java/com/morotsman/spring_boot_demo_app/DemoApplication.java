@@ -49,6 +49,12 @@ public class DemoApplication {
     String important() {
         return restTemplate.getForObject(importantUrl, String.class);
     }
+    
+    @RequestMapping("/not_important")
+    @ResponseBody
+    String notImportant() {
+        return restTemplate.getForObject(notImportantUrl, String.class);
+    }    
 
     @RequestMapping("/seq_aggregate")
     @ResponseBody
