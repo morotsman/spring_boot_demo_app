@@ -90,10 +90,18 @@ public class DemoApplication {
     return "Timeout when calling external server.";
   }
   
-  @ExceptionHandler({org.apache.http.conn.ConnectionPoolTimeoutException.class})
+  @ExceptionHandler({org.apache.http.conn.ConnectTimeoutException.class})
   @ResponseBody
   @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
   public String connectionTimeoutException() {
+    return "It't took to long time to get a connection.";
+  }
+  
+  
+  @ExceptionHandler({org.apache.http.conn.ConnectionPoolTimeoutException.class})
+  @ResponseBody
+  @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
+  public String internalConnectionTimeoutException() {
     return "It't took to long time to get connection from the internal pool.";
   }
   
